@@ -1,0 +1,361 @@
+$cFontColor: #333;
+$cBlack: black;
+$cHeaderColor: #fff;
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 100%;
+}
+
+body {
+  color: $cFontColor;
+  font-size: 1rem;
+  font-family: 'Noto Sans', sans-serif;
+  font-family: 'Noto Sans JP', sans-serif;
+}
+
+img {
+  max-width: 100%;
+}
+
+a {
+  color: $cFontColor;
+  text-decoration: none;
+}
+
+li {
+  list-style: none;
+}
+
+// コンテンツ幅を共通化するclass //
+.wrapper {
+  width: 1200px;
+  padding: 0 16px;
+  margin: 0 auto;
+}
+
+.font-sm {
+  font-size: 0.875rem;
+}
+
+.mb-md {
+  margin-bottom: 30px;
+}
+
+// READ MOREのアニメーション　//
+.readmore {
+  text-align: center;
+
+  a {
+    padding-bottom: 1px;
+    position: relative;
+
+    &::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      height: 1px;
+      transition: all 0.2s ease;
+      width: 100%;
+      background-color: $cBlack;
+    }
+
+    &:hover {
+      &::after {
+        transform: translateY(3px);
+        opacity: 0;
+      }
+    }
+  }
+}
+
+// ------------------------------------ //
+
+// ここからは各セクションのスタイルを設定 //
+
+// header
+#header {
+  width: 100%;
+  position: fixed;
+  z-index: 10;
+  background-color: $cHeaderColor;
+
+  .blog-title {
+    padding: 20px 16px;
+    line-height: 1px;
+
+    a {
+      display: inline-block;
+    }
+  }
+
+  nav {
+    background-color: $cBlack;
+
+    ul {
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+    }
+    li {
+      @extend .font-sm;
+      padding: 10px 60px 10px 0;
+      a {
+        color: $cHeaderColor;
+      }
+    }
+  }
+}
+
+// pickup
+#pickup {
+  display: flex;
+  justify-content: space-between;
+  padding-top: 150px;
+  margin-bottom: 60px;
+
+  article {
+    width: 32%;
+
+    .pickup-title {
+      font-size: 1rem;
+      margin: 10px 0 15px 0;
+    }
+  }
+}
+
+// container
+#container {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 60px;
+}
+
+// main
+main {
+  width: 66.5%;
+
+  article {
+    margin-bottom: 80px;
+
+    .article-title {
+      font-size: 1.5rem;
+      margin: 10px 0 15px 0;
+    }
+
+    ul {
+      display: flex;
+      justify-content: flex-start;
+      margin-bottom: 10px;
+    }
+
+    li {
+      @extend .font-sm;
+      margin-right: 20px;
+    }
+  }
+
+  & .text {
+    padding: 10px 40px 30px 40px;
+  }
+}
+
+// aside
+#sidebar {
+  width: 28.5%;
+  padding: 20px;
+
+  // author
+  & .author {
+    text-align: center;
+    margin-bottom: 60px;
+
+    img {
+      border-radius: 50%;
+      width: 130px;
+      height: 130px;
+      @extend .mb-md;
+    }
+
+    & .side-title {
+      @extend .mb-md;
+    }
+
+    p {
+      @extend .font-sm;
+      text-align: left;
+    }
+  }
+
+  // ranking
+  & .ranking {
+    @extend .mb-md;
+
+    & .side-title {
+      text-align: center;
+      @extend .mb-md;
+    }
+
+    article {
+      margin-bottom: 60px;
+
+      & .article-title {
+        @extend .font-sm;
+        font-weight: normal;
+      }
+    }
+  }
+
+  // archive
+  & .archive {
+    margin-bottom: 60px;
+
+    & .side-title {
+      text-align: center;
+      @extend .mb-md;
+    }
+
+    ul {
+
+    }
+
+    li {
+      border-top: solid 1px $cBlack;
+      padding: 20px;
+      @extend .font-sm;
+
+      &:last-child {
+        border-bottom: solid 1px $cBlack;
+      }
+    }
+  }
+}
+
+
+// footer
+#footer {
+  @extend .font-sm;
+  background-color: #f7f7f7;
+
+  & .content {
+    padding: 50px 16px;
+    display: flex;
+    justify-content: space-between;
+
+    & .item {
+      width: 30%;
+
+      & .footer-title {
+        font-size: 1.15rem;
+        @extend .mb-md;
+      }
+
+      & .about-list {
+        margin: 30px 0;
+
+        li {
+          margin-bottom: 5px;
+          font-size: 0.9rem;
+
+          & .arrow {
+            position: relative;
+            padding-left: 12px;
+            display: inline-block;
+
+            &:before {
+              content: '';
+              position: absolute;
+              width: 0;
+              height: 0;
+              border-style: solid;
+              border-width: 5px 0 5px 8.7px;
+              border-color: transparent transparent transparent $cBlack;
+              left: 0;
+              top: 50%;
+              margin-top: -4px;
+            }
+          }
+        }
+      }
+
+      & .menu-list {
+        li {
+          border-top: solid 1px $cBlack;
+          padding: 15px;
+
+          &:last-child {
+            border-bottom: solid 1px $cBlack;
+          }
+        }
+      }
+    }
+  }
+
+  & .copyright {
+    font-size: 0.750rem;
+    padding: 10px 0;
+    text-align: center;
+  }
+}
+
+//           スマホサイズ            //
+
+@media screen and (max-width: 767px) {
+
+  .wrapper {
+    width: 650px;
+  }
+  #header {
+    & nav {
+      overflow-x: scroll;
+    }
+  }
+
+  #pickup {
+    flex-direction: column;
+
+    & article {
+      width: 100%;
+    }
+  }
+
+  #container {
+    flex-direction: column;
+
+    & main {
+      width: 100%;
+    }
+
+    & #sidebar {
+      width: 100%;
+      padding: 0;
+
+      & .author {
+        p {
+          text-align: center;
+        }
+      }
+    }
+  }
+
+  #footer {
+    & .content {
+      flex-direction: column;
+      margin: 0;
+
+      & .item {
+        width: 100%;
+        @extend .mb-md;
+
+        & .about-list {
+          margin: 20px 0;
+        }
+      }
+    }
+  }
+}
