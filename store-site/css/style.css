@@ -48,8 +48,8 @@ li {
 .wrapper {
   width: 100%;
   max-width: 1360px;
-  padding: 0 40px;
   margin: 0 auto;
+  padding: 0 40px;
 }
 
 .content {
@@ -60,7 +60,7 @@ li {
 .site-title a {
   width: 180px;
   line-height: 1px;
-  display: inline-block;
+  display: block;
 }
 
 .page-title {
@@ -104,6 +104,10 @@ li {
 
 #navi li {
   margin-bottom: 14px;
+}
+
+#navi a {
+  color: #fff;
 }
 
 .open #navi {
@@ -150,7 +154,7 @@ li {
           transform: translateY(-4px) rotate(45deg);
 }
 
-.open .toggle_btn span #mask {
+.open #mask {
   display: block;
   position: fixed;
   opacity: 0.8;
